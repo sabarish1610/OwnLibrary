@@ -47,7 +47,7 @@ publishing {
         bar(MavenPublication) {
             groupId 'com.github.sabarish1610'
             artifactId 'OwnLibrary'
-            version '0.1'
+            version '3.0'
             artifact(sourceJar)
             artifact("$buildDir/outputs/aar/bar-release.aar")
         }
