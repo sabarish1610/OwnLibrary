@@ -37,16 +37,24 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-              //  from components.release
+task sourceJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier "sources"
+}
 
-                groupId = 'com.github.sabarish1610'
-                artifactId = 'OwnLibrary'
-                version = '1.0'
-            }
+publishing {
+    publications {
+        bar(MavenPublication) {
+            groupId 'com.github.sabarish1610'
+            artifactId 'OwnLibrary'
+            version '0.1'
+            artifact(sourceJar)
+            artifact("$buildDir/outputs/aar/bar-release.aar")
+        }
+    }
+    repositories {
+        maven {
+            url "$buildDir/repo"
         }
     }
 }
