@@ -45,7 +45,7 @@ afterEvaluate {
 
                 groupId = 'com.github.sabarish1610'
                 artifactId = 'OwnLibrary'
-                version = '3..1'
+                version = '3.2'
             }
         }
     }
